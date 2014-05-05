@@ -20,7 +20,7 @@ $sendEmail = 1
 #where to write the reports, needs trailing slash
 $reportDir = "e:\ScriptOutput\"
 #where gam is located, needs trailing slash (default is "" if gam is in PATH)
-$gamPath = "E:\gam3\"
+$gamPath = "E:\gam3_edmonton.ca\"
 
 if ($generateNewList)
 {
@@ -124,12 +124,12 @@ if ($writefile)
 if ($sendEmail)
 {
 	#now mail it out
-	$smtpServer = "mailserver.testdomain.com"
+	$smtpServer = "unixmail.gov.edmonton.ab.ca"
 	$att = new-object Net.Mail.Attachment($filename)
 	$msg = new-object Net.Mail.MailMessage
 	$smtp = new-object Net.Mail.SmtpClient($smtpServer)
-	$msg.From = "noreply@testdomain.com"
-	$msg.To.Add("username@testdomain.com")
+	$msg.From = "GAMScripter@edmonton.ca"
+	$msg.To.Add("crsitgooglesupport@edmonton.ca")
 	$msg.Subject = "List of all groups and associated settings"
 	$msg.Body = "Attached is the groups settings report"
 	$msg.Attachments.Add($att)
